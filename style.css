@@ -14,31 +14,6 @@ body {
 .hidden {
   display: none !important;
 }
-#login {
-  position: fixed;
-  inset: 0;
-  background: #1e3a8a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 99;
-}
-#login .box {
-  background: #fff;
-  padding: 32px;
-  border-radius: 12px;
-  width: 320px;
-  text-align: center;
-}
-#login h2 {
-  margin-bottom: 6px;
-  color: #1e3a8a;
-}
-#login p {
-  margin-bottom: 16px;
-  color: #64748b;
-  font-size: 14px;
-}
 #app {
   display: flex;
   min-height: 100vh;
@@ -274,4 +249,229 @@ td input.n {
 }
 @page {
   margin: 8mm;
+}
+
+/* ===== Écran d'accueil / connexion ===== */
+#login {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  z-index: 99;
+  background: #fff;
+}
+.lg-left {
+  flex: 1.1;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  padding: 40px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 55%, #38bdf8 100%);
+}
+.lg-shapes i {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+.lg-shapes i:nth-child(1) {
+  width: 420px;
+  height: 420px;
+  right: -120px;
+  top: -100px;
+}
+.lg-shapes i:nth-child(2) {
+  width: 300px;
+  height: 300px;
+  left: -90px;
+  bottom: -90px;
+}
+.lg-brand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 18px;
+}
+.lg-logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: #fff;
+  color: #1e3a8a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  overflow: hidden;
+}
+.lg-logo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.lg-hero {
+  position: relative;
+  max-width: 460px;
+}
+.lg-hero h1 {
+  font-size: 40px;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.lg-hero p {
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+.lg-hero ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.lg-hero li {
+  background: rgba(255, 255, 255, 0.14);
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+.lg-left small {
+  position: relative;
+  opacity: 0.75;
+}
+.lg-right {
+  flex: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  padding: 24px;
+}
+.lg-card {
+  width: 100%;
+  max-width: 380px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 34px 30px;
+  box-shadow: 0 20px 50px #1e3a8a22;
+  text-align: center;
+  animation: lgup 0.6s ease;
+}
+.lg-ic {
+  font-size: 32px;
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: #dbeafe;
+}
+.lg-card h2 {
+  color: #1e3a8a;
+  font-size: 24px;
+}
+.lg-card .sub {
+  color: #64748b;
+  font-size: 14px;
+  margin: 6px 0 20px;
+}
+.lg-card label {
+  display: block;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.pw {
+  position: relative;
+  margin-bottom: 14px;
+}
+.pw input {
+  width: 100%;
+  padding: 13px 44px 13px 14px;
+  font-size: 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+}
+.pw input:focus {
+  outline: 0;
+  border-color: #2563eb;
+}
+.pw button {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  background: none;
+  color: #64748b;
+  padding: 8px;
+  font-size: 16px;
+}
+.pw button:hover {
+  background: #f1f5f9;
+}
+.go {
+  width: 100%;
+  padding: 13px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #1e3a8a, #2563eb);
+}
+#loginErr {
+  color: #dc2626;
+  margin-top: 10px;
+  min-height: 18px;
+  font-size: 14px;
+}
+.lg-card .hint {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 10px 0;
+}
+.lg-card a {
+  font-size: 12px;
+  color: #2563eb;
+}
+.shake {
+  animation: lgsh 0.35s;
+}
+@keyframes lgup {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes lgsh {
+  25% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
+}
+@media (max-width: 800px) {
+  #login {
+    flex-direction: column;
+    overflow: auto;
+  }
+  .lg-left {
+    flex: none;
+    padding: 24px;
+  }
+  .lg-hero ul,
+  .lg-hero p,
+  .lg-left small {
+    display: none;
+  }
+  .lg-hero h1 {
+    font-size: 26px;
+    margin: 18px 0 0;
+  }
+  .lg-right {
+    flex: 1;
+  }
 }

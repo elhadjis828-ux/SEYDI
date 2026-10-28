@@ -85,14 +85,35 @@ const fmt = (n) => Number(n).toLocaleString("fr-FR");
 function majNom() {
   document.title = DB.school;
   $("loginName").textContent = DB.school;
+  $("loginName2").textContent = DB.school;
   $("menuName").textContent = "🎓 " + DB.school;
+  const ini =
+    DB.school
+      .split(/\s+/)
+      .filter((w) => w.length > 2)
+      .map((w) => w[0])
+      .join("")
+      .slice(0, 2)
+      .toUpperCase() || "É";
+  $("loginLogo").innerHTML = DB.logo ? `<img src="${DB.logo}">` : esc(ini);
+  $("greet").textContent =
+    (new Date().getHours() < 18 ? "Bonjour" : "Bonsoir") + " et bienvenue 👋";
+  $("annee").textContent = new Date().getFullYear();
+  $("loginHint").style.display = String(DB.code) === "1234" ? "" : "none";
 }
 function connexion() {
   if ($("codeIn").value.trim() === String(DB.code).trim()) {
     $("login").classList.add("hidden");
     $("app").classList.remove("hidden");
     go("dash");
-  } else $("loginErr").textContent = "Code incorrect";
+  } else {
+    $("loginErr").textContent = "Code incorrect, réessayez";
+    const k = document.querySelector(".lg-card");
+    k.classList.remove("shake");
+    void k.offsetWidth;
+    k.classList.add("shake");
+    $("codeIn").select();
+  }
 }
 majNom();
 

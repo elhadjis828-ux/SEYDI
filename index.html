@@ -8,39 +8,70 @@
   </head>
   <body>
     <div id="login">
-      <div class="box">
-        <h2 id="loginName">École</h2>
-        <p>Entrez le code d’accès pour continuer</p>
-        <input
-          id="codeIn"
-          type="password"
-          placeholder="Code d’accès"
-          style="width: 100%; margin-bottom: 10px"
-          onkeydown="
-            if (event.key === 'Enter' && typeof connexion === 'function')
-              connexion();
-          "
-        />
-        <button
-          style="width: 100%"
-          onclick="
-            if (typeof connexion === 'function') connexion();
-            else
-              document.getElementById('loginErr').textContent =
-                'script.js introuvable : mettez les 3 fichiers dans le même dossier';
-          "
-        >
-          Entrer
-        </button>
-        <p id="loginErr" style="color: #dc2626; margin: 10px 0 0"></p>
-        <p style="margin-top: 8px; font-size: 12px">
-          Code par défaut :
-          <!--1234-->
-        </p>
-        <p style="font-size: 12px">
+      <div class="lg-left">
+        <div class="lg-shapes"><i></i><i></i></div>
+        <div class="lg-brand">
+          <div class="lg-logo" id="loginLogo">É</div>
+          <span id="loginName2">École</span>
+        </div>
+        <div class="lg-hero">
+          <h1 id="greet">Bienvenue</h1>
+          <p>
+            Gérez votre école simplement : inscriptions, notes, bulletins et
+            paiements, tout au même endroit.
+          </p>
+          <ul>
+            <li>📝 Inscriptions et classes</li>
+            <li>📄 Bulletins officiels par semestre</li>
+            <li>💰 Paiements et reçus</li>
+            <li>📊 Tableau de bord en temps réel</li>
+          </ul>
+        </div>
+        <small>© <span id="annee"></span> — Gestion scolaire</small>
+      </div>
+      <div class="lg-right">
+        <div class="lg-card">
+          <div class="lg-ic">🔐</div>
+          <h2 id="loginName">École</h2>
+          <p class="sub">Connectez-vous avec votre code d’accès</p>
+          <label for="codeIn">Code d’accès</label>
+          <div class="pw">
+            <input
+              id="codeIn"
+              type="password"
+              placeholder="Entrez votre code"
+              autocomplete="off"
+              onkeydown="
+                if (event.key === 'Enter' && typeof connexion === 'function')
+                  connexion();
+              "
+            />
+            <button
+              type="button"
+              title="Afficher / masquer"
+              onclick="
+                var i = document.getElementById('codeIn');
+                i.type = i.type === 'password' ? 'text' : 'password';
+              "
+            >
+              👁
+            </button>
+          </div>
+          <button
+            class="go"
+            onclick="
+              if (typeof connexion === 'function') connexion();
+              else
+                document.getElementById('loginErr').textContent =
+                  'script.js introuvable : mettez les 3 fichiers dans le même dossier';
+            "
+          >
+            Se connecter →
+          </button>
+          <p id="loginErr"></p>
+          <p class="hint" id="loginHint">Code par défaut : 1234</p>
           <a
             href="#"
-            style="color: #2563eb"
             onclick="
               if (
                 confirm(
@@ -56,7 +87,7 @@
             "
             >Code oublié ? Réinitialiser</a
           >
-        </p>
+        </div>
       </div>
     </div>
 
