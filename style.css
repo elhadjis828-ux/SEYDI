@@ -1,0 +1,277 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family:
+    Segoe UI,
+    Arial,
+    sans-serif;
+}
+body {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+.hidden {
+  display: none !important;
+}
+#login {
+  position: fixed;
+  inset: 0;
+  background: #1e3a8a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+#login .box {
+  background: #fff;
+  padding: 32px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+}
+#login h2 {
+  margin-bottom: 6px;
+  color: #1e3a8a;
+}
+#login p {
+  margin-bottom: 16px;
+  color: #64748b;
+  font-size: 14px;
+}
+#app {
+  display: flex;
+  min-height: 100vh;
+}
+aside {
+  width: 230px;
+  background: #1e293b;
+  color: #fff;
+  padding: 20px 0;
+  flex-shrink: 0;
+}
+aside h1 {
+  font-size: 17px;
+  padding: 0 20px 20px;
+  border-bottom: 1px solid #334155;
+  line-height: 1.3;
+}
+aside a {
+  display: block;
+  padding: 12px 20px;
+  color: #cbd5e1;
+  cursor: pointer;
+  font-size: 15px;
+}
+aside a:hover,
+aside a.on {
+  background: #2563eb;
+  color: #fff;
+}
+main {
+  flex: 1;
+  padding: 24px;
+  overflow-x: auto;
+}
+h2.t {
+  margin-bottom: 18px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 1px 4px #0001;
+}
+.card b {
+  display: block;
+  font-size: 30px;
+  color: #2563eb;
+}
+.panel {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 1px 4px #0001;
+}
+.panel h3 {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+input,
+select,
+button {
+  padding: 9px 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+}
+button {
+  background: #2563eb;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+}
+button:hover {
+  background: #1d4ed8;
+}
+button.red {
+  background: #dc2626;
+}
+button.gray {
+  background: #64748b;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+th,
+td {
+  padding: 9px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+th {
+  background: #f8fafc;
+}
+td input.n {
+  width: 70px;
+}
+.bar {
+  height: 14px;
+  background: #2563eb;
+  border-radius: 4px;
+}
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+  font-size: 14px;
+}
+.stat span:first-child {
+  width: 90px;
+}
+@media (max-width: 700px) {
+  #app {
+    flex-direction: column;
+  }
+  aside {
+    width: 100%;
+  }
+}
+@media print {
+  aside,
+  .noprint,
+  #login {
+    display: none !important;
+  }
+  main {
+    padding: 0;
+  }
+  body {
+    background: #fff;
+  }
+}
+
+#bulletin {
+  background: #fff;
+  padding: 20px 24px;
+  border: 1px solid #888;
+  max-width: 820px;
+  font-size: 12px;
+  color: #000;
+}
+#bulletin table {
+  font-size: 12px;
+}
+#bulletin th,
+#bulletin td {
+  padding: 2px 6px;
+  border: 0;
+}
+#bulletin th {
+  background: #bbb;
+}
+#bulletin td + td {
+  text-align: center;
+}
+#bulletin .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  line-height: 1.5;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.flag {
+  width: 90px;
+  height: 60px;
+  display: flex;
+  border: 1px solid #ccc;
+}
+.flag i {
+  flex: 1;
+  font-style: normal;
+}
+.logo {
+  width: 90px;
+  height: 60px;
+}
+#bulletin .info {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+#bulletin .info > div,
+#bulletin .box {
+  border: 1px solid #000;
+}
+#bulletin .info > div {
+  flex: 1;
+  padding: 6px 8px;
+  line-height: 1.7;
+}
+#bulletin .titre {
+  background: #bbb;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px;
+  margin: 12px 0 6px;
+}
+#bulletin .sub {
+  padding-left: 24px;
+}
+#bulletin .tot td {
+  background: #bbb;
+  font-weight: bold;
+}
+#bulletin .box th,
+#bulletin .box td {
+  border: 1px solid #000;
+}
+#bulletin .foot {
+  background: #bbb;
+  text-align: right;
+  font-size: 10px;
+  padding: 4px 8px;
+  margin-top: 6px;
+}
+@page {
+  margin: 8mm;
+}

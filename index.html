@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gestion d’école</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="login">
+      <div class="box">
+        <h2 id="loginName">École</h2>
+        <p>Entrez le code d’accès pour continuer</p>
+        <input
+          id="codeIn"
+          type="password"
+          placeholder="Code d’accès"
+          style="width: 100%; margin-bottom: 10px"
+          onkeydown="
+            if (event.key === 'Enter' && typeof connexion === 'function')
+              connexion();
+          "
+        />
+        <button
+          style="width: 100%"
+          onclick="
+            if (typeof connexion === 'function') connexion();
+            else
+              document.getElementById('loginErr').textContent =
+                'script.js introuvable : mettez les 3 fichiers dans le même dossier';
+          "
+        >
+          Entrer
+        </button>
+        <p id="loginErr" style="color: #dc2626; margin: 10px 0 0"></p>
+        <p style="margin-top: 8px; font-size: 12px">
+          Code par défaut :
+          <!--1234-->
+        </p>
+        <p style="font-size: 12px">
+          <a
+            href="#"
+            style="color: #2563eb"
+            onclick="
+              if (
+                confirm(
+                  'Cela EFFACE toutes les données (élèves, notes…) et remet le code à 1234. Continuer ?',
+                )
+              ) {
+                try {
+                  localStorage.removeItem('ecole_v1');
+                } catch (e) {}
+                location.reload();
+              }
+              return false;
+            "
+            >Code oublié ? Réinitialiser</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <div id="app" class="hidden">
+      <aside>
+        <h1 id="menuName">École</h1>
+        <a data-v="dash" class="on">📊 Tableau de bord</a>
+        <a data-v="inscr">📝 Inscriptions</a>
+        <a data-v="classes">🏫 Classes</a>
+        <a data-v="profs">👨‍🏫 Professeurs</a>
+        <a data-v="notes">✏️ Notes</a>
+        <a data-v="bull">📄 Bulletins</a>
+        <a data-v="pay">💰 Paiements / Reçus</a>
+        <a data-v="param">⚙️ Paramètres</a>
+        <a onclick="location.reload()">🚪 Déconnexion</a>
+      </aside>
+      <main id="main"></main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
